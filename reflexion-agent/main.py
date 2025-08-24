@@ -27,11 +27,11 @@ builder.add_conditional_edges("revise", event_loop, {END:END, "execute_tools":"e
 builder.set_entry_point("draft")
 graph = builder.compile()
 
-print(graph.get_graph().draw_mermaid('reflexion_flow.png'))
+print(graph.get_graph().draw_mermaid_png(output_file_path="reflexion_flow.png"))
 
 
-# res = graph.invoke(
-#     "Write about AI-Powered SOC / autonomous soc  problem domain, list startups that do that and raised capital."
-# )
-# print(res[-1].tool_calls[0]["args"]["answer"])
-# print(res)
+res = graph.invoke(
+    "Write about AI-Powered SOC / autonomous soc  problem domain, list startups that do that and raised capital."
+)
+print(res[-1].tool_calls[0]["args"]["answer"])
+print(res)
